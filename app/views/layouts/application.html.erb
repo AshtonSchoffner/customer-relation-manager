@@ -11,6 +11,26 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <% if current_page?(customers_url) %>
+        <h2>All Customers</h2>
+      <% elsif current_page?(missing_email_url) %>
+        <h2>Customers Missing Email</h2>
+      <% else %>
+        <h2>Customers Alphabetically</h2>
+      <% end %>
+    </div>
+
+    <div class="container">
+      <ul class="nav nav-tabs nav-fill justify-content-center pb-2 pt-4">
+        <li class="nav-item"><%= link_to "Customers", customers_url %></li>
+        <li class="nav-item"><%= link_to "Customers Missing Email", missing_email_url %></li>
+        <li class="nav-item"><%= link_to "Customers Alphabetically", alphabetized_url %></li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

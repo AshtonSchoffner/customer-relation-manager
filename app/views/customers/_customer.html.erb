@@ -1,0 +1,15 @@
+<div class="col-3">
+  <div class="card">
+    <% if customer.image.present? %>
+      <%= image_tag customer.image, :class => "card-img-top"%>
+    <% end %>
+    <div class="card-body">
+      <% if show_link %>
+        <h5 class="card-title"><%= customer.full_name %></h5>
+      <% end %>
+
+      <p class="card-text"><%= customer.phone_number %></p>
+      <p class="card-text"><%= customer.email %></p>
+    </div>
+  </div>
+</div>
